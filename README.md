@@ -2,7 +2,7 @@
 
 **Course:** CS123B - Bioinformatics ; Dr.Wesley
 **Term:** Fall 2025  
-**Authors:** [Mahek Kothari], [Quynh Thach]  
+**Authors:** Mahek Kothari, Quynh Thach
 ---
 
 ## Project Overview

@@ -13,7 +13,7 @@ This project develops a Convolutional Neural Network (CNN) to predict whether ge
 
 **Source:** GTEx Portal (Genotype-Tissue Expression Project)  
 **Gene:** TCF7L2 (Transcription Factor 7 Like 2)  
-- Associated with Type 2 diabetes susceptibility
+- Associated with Type 2 diabetes 
 - Located on chromosome 10
 
 **Data Composition:**

@@ -49,7 +49,7 @@ Dense (1 unit) + Sigmoid
 Output: Probability [0,1] of being an eQTL
 ```
 
-**Total Parameters:** 20,257 (79.13 KB)  
+**Total Parameters:** 20,257  
 **Trainable Parameters:** 20,065  
 **Non-trainable Parameters:** 192
 
@@ -90,35 +90,35 @@ eQTL            0     90
 
 ## Methodology
 
-### 1. Data Preparation
+### Data Preparation
 - Loaded 447 eQTL variants from GTEx Portal
 - Generated 445 negative controls by shifting positions ±200bp
 - Split: 80% training (713) / 20% test (179)
 
-### 2. Sequence Generation
+### Sequence Generation
 Generated synthetic 101bp DNA sequences:
 - **eQTL sequences:** 65% GC content + TATA box motifs (40% frequency)
 - **Non-eQTL sequences:** 35% GC content
 
-### 3. Data Augmentation
+### Data Augmentation
 - Doubled training data since DNA can be read forward and backwards 
 - Final training size: 1,426 samples
 
-### 4. Feature Encoding
+### Feature Encoding
 - One-hot encoded DNA sequences (A,C,G,T,N → 5-dimensional vectors)
 - Output shape: (batch_size, 101, 5)
 
-### 5. Model Training
+### Model Training
 - **Optimizer:** Adam (learning_rate=5e-4)
 - **Loss:** Binary cross-entropy
 - **Epochs:** 50 (with early stopping, patience=7)
 - **Batch size:** 32
 - **Regularization:** L2 (λ=0.01), Dropout (0.4-0.7), BatchNormalization
 
-### 6. Evaluation
+### Evaluation
 - Tested on 179 held-out samples
 - Calculated accuracy, precision, recall, F1-score, AUC
-- Verified on test sequences we created
+- Verified model on test sequences we created
 
 ---
 
@@ -133,7 +133,7 @@ Generated synthetic 101bp DNA sequences:
 
 | Improvement | Impact |
 |-------------|--------|
-| **Added biological features** | GC content difference (65% vs 35%) gave model real patterns |
+| **Added features** | GC content difference (65% vs 35%) gave model real patterns |
 | **Data augmentation** | Doubled training data (713 → 1,426) |
 | **Simplified architecture** | Reduced parameters (76K → 20K) |
 | **Increased regularization** | BatchNorm + higher Dropout + L2 penalty |
@@ -217,9 +217,9 @@ jupyter notebook cs123B_final_project.ipynb
 1. **GC Content is Highly Predictive**
    - eQTLs: ~65% GC (regulatory regions are GC-rich)
    - Non-eQTLs: ~35% GC
-   - Model correctly learned this biological pattern
+   - Model correctly learned this pattern
 
-2. **Showed how Regulatory Motifs Matter**
+2. **Showed how Regulatory Motifs are Important**
    - TATA box presence associated with eQTLs
    - Model detects local sequence patterns
 

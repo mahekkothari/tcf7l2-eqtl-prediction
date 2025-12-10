@@ -1,6 +1,6 @@
 # Predicting the Regulatory Impact of Non-Coding Genetic Variants Using Functional Genomics and Machine Learning
 
-**Course:** CS123B - Bioinformatics ; Dr.Wesley
+**Course:** CS123B - Bioinformatics - Dr.Wesley; 
 **Term:** Fall 2025  
 **Authors:** Mahek Kothari, Quynh Thach
 ---
@@ -25,9 +25,9 @@ This project develops a Convolutional Neural Network (CNN) to predict whether ge
 
 ---
 
-## Architecture
+## Model Architecture
 
-### Model: Simplified CNN with Regularization
+### Model: 2D CNN with Regularization
 
 ```
 Input: (101, 5) one-hot encoded DNA sequences
@@ -96,12 +96,12 @@ eQTL            0     90
 - Split: 80% training (713) / 20% test (179)
 
 ### 2. Sequence Generation
-Generated synthetic 101bp DNA sequences with biologically-realistic features:
+Generated synthetic 101bp DNA sequences:
 - **eQTL sequences:** 65% GC content + TATA box motifs (40% frequency)
-- **Non-eQTL sequences:** 35% GC content, more random composition
+- **Non-eQTL sequences:** 35% GC content
 
 ### 3. Data Augmentation
-- Doubled training data using reverse complements (biologically valid)
+- Doubled training data since DNA can be read forward and backwards 
 - Final training size: 1,426 samples
 
 ### 4. Feature Encoding
@@ -118,7 +118,7 @@ Generated synthetic 101bp DNA sequences with biologically-realistic features:
 ### 6. Evaluation
 - Tested on 179 held-out samples
 - Calculated accuracy, precision, recall, F1-score, AUC
-- Verified on hand-crafted test sequences
+- Verified on test sequences we created
 
 ---
 
@@ -139,7 +139,7 @@ Generated synthetic 101bp DNA sequences with biologically-realistic features:
 | **Increased regularization** | BatchNorm + higher Dropout + L2 penalty |
 | **Early stopping** | Prevented overfitting during training |
 
-### Result: Perfect Generalization
+### Result: Improved Generalization
 - Training accuracy: 99.8%
 - Test accuracy: 100%
 - Gap: -0.2% 
@@ -154,6 +154,9 @@ Thach_Kothari_CS123B_F25_eQTL_Prediction/
 ├── README.md                           
 ├── cs123B_final_project.ipynb         # Jupyter notebook
 ├── GTEx_Portal.csv                    # eQTL data from GTEx
+├── CS123B Final Project Report - Thach & Kothari.pdf # Final Project Report
+
+
 ```
 ---
 
@@ -216,15 +219,11 @@ jupyter notebook cs123B_final_project.ipynb
    - Non-eQTLs: ~35% GC
    - Model correctly learned this biological pattern
 
-2. **Regulatory Motifs Matter**
+2. **Showed how Regulatory Motifs Matter**
    - TATA box presence associated with eQTLs
    - Model detects local sequence patterns
 
-3. **Sequence Context**
-   - CNNs capture contextual patterns beyond individual bases
-   - 8bp kernel size appropriate for detecting short motifs
-
-### Example Predictions
+### Predictions from Created Examples 
 
 | Sequence Type | GC% | Prediction | Confidence |
 |---------------|-----|------------|------------|
@@ -236,11 +235,11 @@ jupyter notebook cs123B_final_project.ipynb
 
 ## References
 
-### Data Source
+### Data 
 - GTEx Consortium. “The GTEx Consortium atlas of genetic regulatory effects across human tissues.” Science (New York, N.Y.) vol. 369,6509 (2020): 1318-1330. doi:10.1126/science.aaz1776
 - GTEx Portal: https://gtexportal.org
 
-### Related Methods
+### Sources 
 - Zhou, Jian, and Olga G Troyanskaya. “Predicting effects of noncoding variants with deep learning-based sequence model.” Nature methods vol. 12,10 (2015): 931-4. doi:10.1038/nmeth.3547
 - Kelley, David R et al. “Basset: learning the regulatory code of the accessible genome with deep convolutional neural networks.” Genome research vol. 26,7 (2016): 990-9. doi:10.1101/gr.200535.115
 
@@ -252,5 +251,3 @@ jupyter notebook cs123B_final_project.ipynb
 ---
 
 *Last Updated: December 2025*  
-*Model Performance: 100% test accuracy, 1.000 AUC*  
-*Training Time: ~3 minutes on Google Colab CPU*

@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-This project develops a Convolutional Neural Network (CNN) to predict whether genetic variants have a regulatory impact on gene expression. Using data from the GTEx Portal, we classify variants as expression Quantitative Trait Loci (eQTLs) or non-regulatory variants based solely on DNA sequence features.
+This project develops a Convolutional Neural Network (CNN) to predict whether genetic variants have a regulatory impact on gene expression. Using data from the GTEx Portal, we classify variants as expression Quantitative Trait Loci (eQTLs) or non-regulatory variants based on DNA sequence features. Specifically using the TCF7L2 gene, which is linked to Type 2 diabetes. 
 
 ## Dataset
 
